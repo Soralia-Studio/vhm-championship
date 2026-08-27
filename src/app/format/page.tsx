@@ -29,24 +29,15 @@ export default function FormatPage() {
     }, [now]);
 
     const [showScrollTop, setShowScrollTop] = useState(false);
-    const scrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
+        // The button will appear after user scrolling for around 200px
         const handleScroll = () => {
-            setShowScrollTop(false);
+            setShowScrollTop(window.scrollY > 200);
+        }
 
-            if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
-
-            if (window.scrollY > 200) {
-                scrollTimerRef.current = setTimeout(() => setShowScrollTop(true), 2500);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
-        };
+        window.addEventListener('scroll', handleScroll, {passive: true});
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -193,7 +184,7 @@ export default function FormatPage() {
             <button
                 onClick={scrollToTop}
                 aria-label='Scroll to top'
-                className='fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500'
+                className='fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 cursor-pointer'
                 style={{
                     background: 'rgba(15, 20, 50, 0.85)',
                     backdropFilter: 'blur(8px)',
