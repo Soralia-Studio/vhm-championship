@@ -5,22 +5,26 @@ export type StaffDataType = {
     avatar_url: string?
 }
 
-type DiffucultyName = 'Easy' | 'Normal' | 'Hard' | 'Master' | 'Re:Master';
+type DifficultyName = 'Easy' | 'Normal' | 'Hard' | 'Master' | 'Re:Master' | 'Utage';
 
-type ChartDifficultyStruct = {
+type ChartDataType = {
     level: string,
-    difficulty: DiffucultyName,
-    noteCount: number,
+    difficulty: DifficultyName,
+    chartDesigner: string,
 }
 
-export type ChartDataType = {
+export type SongDataType = {
     id: string,
     name: string,
     author: string,
-    chartDesigner: string,
     cover: string,
-    properties: {
-        bpm: number,
-        difficulties: ChartDifficultyStruct[]
-    }
+    bpm: number,
+    isDX: boolean,
+    difficulties: ChartDataType[]
+}
+
+export type PoolItemType = {
+    id: string,
+    song: SongDataType,
+    selectedChart: ChartDataType
 }
