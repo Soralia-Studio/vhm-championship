@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface TimelineEvent {
     time: string;
@@ -18,15 +18,15 @@ const TIMELINE: TimelineEvent[] = [
 ];
 
 export default function FormatPage() {
-    const now = useMemo(() => new Date(), []);
+    // const now = useMemo(() => new Date(), []);
 
-    const activeIndex = useMemo(() => {
-        let idx = -1;
-        TIMELINE.forEach((event, i) => {
-            if (now >= event.activateAt) idx = i;
-        });
-        return idx;
-    }, [now]);
+    // const activeIndex = useMemo(() => {
+    //     let idx = -1;
+    //     TIMELINE.forEach((event, i) => {
+    //         if (now >= event.activateAt) idx = i;
+    //     });
+    //     return idx;
+    // }, [now]);
 
     const [showScrollTop, setShowScrollTop] = useState(false);
 
