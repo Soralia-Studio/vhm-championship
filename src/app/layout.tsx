@@ -18,15 +18,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<'/'>) {
     return (
         <html lang='en' className={`${nunito.variable} antialiased`}>
-            <body className="min-h-screen flex flex-col w-full text-white">
-                <div className="fixed inset-0 -z-20"
+            <body className='min-h-screen flex flex-col w-full text-white'>
+                <div
+                    className='fixed inset-0 -z-20'
                     style={{
                         backgroundImage: "url('background.png')",
                         backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'cover'
+                        backgroundSize: 'cover',
                     }}
                 />
-                <div className='fixed inset-0 bg-black/50 -z-10'/>
+                <div className='fixed inset-0 bg-black/50 -z-10' />
                 <Navbar />
                 <PageTransition>{children}</PageTransition>
             </body>
