@@ -41,21 +41,20 @@ const Navbar: React.FC = () => {
                 animate={isHomePage ? { opacity: 1, y: 0 } : undefined}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: 0 }}
                 className='fixed left-4 right-4 sm:left-8 sm:right-8 top-4 sm:top-6 z-50 bg-navbar rounded-xl shadow-xl flex items-center justify-between h-16 sm:h-18'
-                style={isFormatPage ? {
-                    opacity: navVisible ? 1 : 0,
-                    transform: navVisible ? 'translateY(0)' : 'translateY(20px)',
-                    pointerEvents: navVisible ? 'auto' : 'none',
-                    transition: 'opacity 0.3s ease, transform 0.3s ease',
-                } : undefined}
+                style={
+                    isFormatPage
+                        ? {
+                              opacity: navVisible ? 1 : 0,
+                              transform: navVisible ? 'translateY(0)' : 'translateY(20px)',
+                              pointerEvents: navVisible ? 'auto' : 'none',
+                              transition: 'opacity 0.3s ease, transform 0.3s ease',
+                          }
+                        : undefined
+                }
             >
                 <div className='flex items-center gap-4 sm:gap-6 lg:gap-8 h-full'>
                     <div className='w-20 h-full sm:w-28 relative overflow-hidden flex-shrink-0 rounded-l-xl'>
-                        <Image
-                            src={'/logo_placeholder.jpg'}
-                            alt='logo'
-                            fill
-                            className='object-cover'
-                        />
+                        <Image src={'/logo_placeholder.jpg'} alt='logo' fill className='object-cover' />
                     </div>
 
                     <ul className='hidden md:flex gap-5 lg:gap-7 xl:gap-9 font-bold text-sm lg:text-base xl:text-lg items-center text-white'>

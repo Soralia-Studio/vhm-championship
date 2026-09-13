@@ -4,7 +4,6 @@ import Footer from '@/components/footer';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 
-
 export default function Home() {
     return (
         <div className='h-screen overflow-hidden flex flex-col'>
