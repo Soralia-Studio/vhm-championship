@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from 'eslint-plugin-storybook';
+
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -9,12 +12,10 @@ export default defineConfig([
     {
         ignores: ['dist/**', 'build/**', 'node_modules/**', '.next/**', 'next-env.d.ts'],
     },
-
     js.configs.recommended,
     ...tseslint.configs.recommended,
     pluginReact.configs.flat.recommended,
     pluginReact.configs.flat['jsx-runtime'],
-
     {
         files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
         languageOptions: {
@@ -32,6 +33,6 @@ export default defineConfig([
             '@typescript-eslint/semi': ['error', 'always'],
         },
     },
-
     eslintConfigPrettier,
+    ...storybook.configs['flat/recommended'],
 ]);
